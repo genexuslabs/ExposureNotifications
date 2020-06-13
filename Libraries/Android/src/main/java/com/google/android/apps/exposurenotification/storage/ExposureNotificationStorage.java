@@ -44,7 +44,6 @@ public class ExposureNotificationStorage {
 	public static Entity getExposureConfiguration()
 	{
 		Entity exposureConfiguration = EntityFactory.newSdt("ExposureAlerts.ExposureConfiguration");
-		// TODO: GX add a default value for ExposureConfiguration?
 		String valueString = getStorage().getString(FIELD_EXPOSURE_CONFIGURATION, "");
 		if (Strings.hasValue(valueString))
 		{

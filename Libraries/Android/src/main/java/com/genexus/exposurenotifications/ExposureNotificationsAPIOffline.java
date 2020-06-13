@@ -163,7 +163,6 @@ public class ExposureNotificationsAPIOffline {
 				{
 					// is exposure interval are diferents.
 					if (previousExposureDetectionMinInterval != exposureDetectionMinInterval) {
-						// TODO: GX schedule with time delay
 						ExposureNotificationsAPIOffline.sScheduleDaily = true;
 						Services.Log.debug(" ExposureDetectionMinInterval changed , scheduleDailyProvideDiagnosisKeys. new interval: " + exposureDetectionMinInterval);
 						ProvideDiagnosisKeysWorker.scheduleDailyProvideDiagnosisKeys(MyApplication.getInstance());
