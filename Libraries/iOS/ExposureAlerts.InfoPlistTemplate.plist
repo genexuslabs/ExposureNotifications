@@ -1,0 +1,11 @@
+$if(Main.AppleDevice_iOS)$
+<key>BGTaskSchedulerPermittedIdentifiers</key>
+<array>
+	<string>\$(PRODUCT_BUNDLE_IDENTIFIER).exposure-notification</string>
+</array>
+<key>UIRequiredDeviceCapabilities</key>
+<array>
+	<string>telephony</string>
+	<string>bluetooth-le</string>
+</array>
+$endif$

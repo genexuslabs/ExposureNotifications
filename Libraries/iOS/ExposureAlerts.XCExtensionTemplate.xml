@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XCExtension>
+	<ProjectSections>
+		<Extends>
+$if(Main.AppleDevice_iOS)$
+			<PBXBuildFile>
+				<![CDATA[		570E6DBB301F922A00B22030 /* GXExposureAlertsExtensionLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E6DA9111F922A00B22030 /* GXExposureAlertsExtensionLibrary.swift */; };
+		AEC5A9AE246ECD8C00116FD0 /* GXEOExposureNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5A9AD246ECD8C00116FD0 /* GXEOExposureNotification.swift */; };
+		AEC5AA28246ED9DF00116FD0 /* GXActionExtObjExposureNotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5AA27246ED9DF00116FD0 /* GXActionExtObjExposureNotificationHandler.swift */; };
+		AE82933F24748C61000D7A77 /* GXExposureAlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82933C24748C61000D7A77 /* GXExposureAlertsManager.swift */; };
+		AE82934024748C61000D7A77 /* GXExposureAlertsApplicationModelLoaderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82933D24748C61000D7A77 /* GXExposureAlertsApplicationModelLoaderExtension.swift */; };
+		AE82934124748C61000D7A77 /* GXExposureAlertsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE82933E24748C61000D7A77 /* GXExposureAlertsLocalStorage.swift */; };
+				]]>
+			</PBXBuildFile>
+			<PBXSourcesBuildPhase>
+				<![CDATA[		570E6DBB301F922A00B22030 /* GXExposureAlertsExtensionLibrary.swift in Sources */,
+				AEC5AA28246ED9DF00116FD0 /* GXActionExtObjExposureNotificationHandler.swift in Sources */,
+				AEC5A9AE246ECD8C00116FD0 /* GXEOExposureNotification.swift in Sources */,
+				AE82933F24748C61000D7A77 /* GXExposureAlertsManager.swift in Sources */,
+				AE82934024748C61000D7A77 /* GXExposureAlertsApplicationModelLoaderExtension.swift in Sources */,
+				AE82934124748C61000D7A77 /* GXExposureAlertsLocalStorage.swift in Sources */,
+				]]>
+			</PBXSourcesBuildPhase>
+			<PBXFileReference>
+				<![CDATA[		570E6DA9111F922A00B22030 /* GXExposureAlertsExtensionLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GXExposureAlertsExtensionLibrary.swift; path = ExtensionLibraries/ExposureAlerts/GXExposureAlertsExtensionLibrary.swift; sourceTree = "<group>"; };
+		AEC5A9AD246ECD8C00116FD0 /* GXEOExposureNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GXEOExposureNotification.swift; path = ExtensionLibraries/ExposureAlerts/GXEOExposureNotification.swift; sourceTree = "<group>"; };
+		AEC5AA27246ED9DF00116FD0 /* GXActionExtObjExposureNotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GXActionExtObjExposureNotificationHandler.swift; path = ExtensionLibraries/ExposureAlerts/GXActionExtObjExposureNotificationHandler.swift; sourceTree = "<group>"; };
+		AE82933C24748C61000D7A77 /* GXExposureAlertsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GXExposureAlertsManager.swift; path = ExtensionLibraries/ExposureAlerts/GXExposureAlertsManager.swift; sourceTree = "<group>"; };
+		AE82933D24748C61000D7A77 /* GXExposureAlertsApplicationModelLoaderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GXExposureAlertsApplicationModelLoaderExtension.swift; path = ExtensionLibraries/ExposureAlerts/GXExposureAlertsApplicationModelLoaderExtension.swift; sourceTree = "<group>"; };
+		AE82933E24748C61000D7A77 /* GXExposureAlertsLocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GXExposureAlertsLocalStorage.swift; path = ExtensionLibraries/ExposureAlerts/GXExposureAlertsLocalStorage.swift; sourceTree = "<group>"; };
+				]]>
+			</PBXFileReference>
+			<PBXGroup_CustomTemplate>
+				<![CDATA[				570A1DA9201F911900B22030 /* ExposureAlerts */, ]]>
+			</PBXGroup_CustomTemplate>
+			<PBXGroupRoot>
+				<![CDATA[		570A1DA9201F911900B22030 /* ExposureAlerts */ = {
+			isa = PBXGroup;
+			children = (
+				AE82933D24748C61000D7A77 /* GXExposureAlertsApplicationModelLoaderExtension.swift */,
+				AE82933E24748C61000D7A77 /* GXExposureAlertsLocalStorage.swift */,
+				AE82933C24748C61000D7A77 /* GXExposureAlertsManager.swift */,
+				570E6DA9111F922A00B22030 /* GXExposureAlertsExtensionLibrary.swift */,
+				AEC5A9AD246ECD8C00116FD0 /* GXEOExposureNotification.swift */,
+				AEC5AA27246ED9DF00116FD0 /* GXActionExtObjExposureNotificationHandler.swift */,
+			);
+			name = ExposureAlerts;
+			sourceTree = "<group>";
+		};
+		]]>
+			</PBXGroupRoot>
+$endif$
+		</Extends>
+	</ProjectSections>
+</XCExtension>

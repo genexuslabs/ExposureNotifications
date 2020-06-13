@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="learn_more">Ver más</string>
+	<string name="generic_error_message">Error iniciando las alertas de exposición.</string>
+</resources>

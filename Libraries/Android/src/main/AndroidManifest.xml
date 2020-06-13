@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.genexus.exposurenotifications" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+	<uses-feature android:name="android.hardware.bluetooth_le" android:required="true" />
+	<uses-feature android:name="android.hardware.bluetooth" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+
+	<application>
+
+		<!-- Receivers -->
+		<receiver
+			android:name="com.google.android.apps.exposurenotification.nearby.ExposureNotificationBroadcastReceiver"
+			android:permission="com.google.android.gms.nearby.exposurenotification.EXPOSURE_CALLBACK"
+			android:exported="true">
+			<intent-filter>
+				<action android:name="com.google.android.gms.exposurenotification.ACTION_EXPOSURE_STATE_UPDATED" />
+				<action android:name="com.google.android.gms.exposurenotification.ACTION_REQUEST_DIAGNOSIS_KEYS" />
+			</intent-filter>
+		</receiver>
+
+    </application>
+</manifest>

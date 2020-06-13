@@ -1,0 +1,10 @@
+$if(Main.AppleDevice_iOS)$
+<key>com.apple.developer.exposure-notification</key>
+<true/>
+$if(false)$
+<key>com.apple.developer.exposure-notification-test</key>
+<true/>
+<key>com.apple.developer.exposure-notification-test-skip-file-verification</key>
+<true/>
+$endif$
+$endif$

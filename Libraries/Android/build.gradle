@@ -1,0 +1,59 @@
+apply from: rootProject.file('android-library.gradle')
+
+// Fetch server details from command line arguments (for CI)
+ext.key_server_upload_uri = project.hasProperty('UPLOAD_URI') ? project.getProperty('UPLOAD_URI') : "https://www.gub.uy/"
+// use our server url
+ext.key_server_download_base_uri = project.hasProperty('DOWNLOAD_URI') ? project.getProperty('DOWNLOAD_URI') : "https://www.gub.uy/"
+ext.safetynet_api_key = project.hasProperty('SAFETYNET_KEY') ? project.getProperty('SAFETYNET_KEY') : "REPLACE-ME"
+
+android {
+    defaultConfig {
+		//minSdkVersion 21
+
+        consumerProguardFiles 'proguard-rules.pro'
+
+		resValue("string", "key_server_upload_uri", key_server_upload_uri)
+		resValue("string", "key_server_download_base_uri", key_server_download_base_uri)
+		resValue("string", "safetynet_api_key", safetynet_api_key)
+    }
+}
+
+dependencies {
+    implementation project(':FlexibleClient')
+	implementation project(':FlexibleClient')
+	implementation deps.androidx.annotations
+	implementation deps.androidx.app_compat
+
+	// common
+	api 'androidx.concurrent:concurrent-futures:1.0.0'
+	api 'com.google.guava:guava:29.0-android'
+
+	api 'com.google.android.gms:play-services-tasks:17.0.2'
+	api 'com.google.android.gms:play-services-base:17.2.1'
+	api 'com.google.android.gms:play-services-basement:17.2.1'
+
+	// time
+	api 'com.jakewharton.threetenabp:threetenabp:1.2.4'
+
+	// api Google play services beta, play-services-nearby-18.0.2-eap
+	api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+	// Auto-value
+	api 'com.google.auto.value:auto-value-annotations:1.7'
+	annotationProcessor 'com.google.auto.value:auto-value:1.7'
+
+	// Androidx work
+	implementation 'androidx.work:work-runtime:2.3.4'
+
+	// safety net , network
+	implementation 'com.google.android.gms:play-services-safetynet:17.0.0'
+	// network , now use volley
+	implementation 'com.android.volley:volley:1.1.1'
+
+	// material , snackbar
+	implementation 'com.google.android.material:material:1.1.0'
+
+
+	//implementation deps.play_services.gcm
+    //implementation deps.gson
+}

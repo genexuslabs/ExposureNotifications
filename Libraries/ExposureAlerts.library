@@ -1,0 +1,22 @@
+<ExtensionLibrary Name="ExposureAlerts">
+	<Implements>
+		<ExternalObject name="ExposureAlerts.ExposureNotification"/>
+	</Implements>
+	<iOS platforms="iOS">
+		<ModuleClass>GXExposureAlertsExtensionLibrary</ModuleClass>
+		<XCProjExtensionFile>ExposureAlerts.XCExtensionTemplate.xml</XCProjExtensionFile>
+		<CopyListFile>ExposureAlerts.CopyListTemplate.xml</CopyListFile>
+		<InfoPlistFile>ExposureAlerts.InfoPlistTemplate.plist</InfoPlistFile>
+		<EntitlementsExtensionFile>ExposureAlerts.EntitlementsTemplate.entitlements</EntitlementsExtensionFile>
+	</iOS>
+	<Android>
+		<GroupId>com.genexus</GroupId>
+		<Name>ExposureNotificationsModule</Name>
+		<Version>UseGenexusComponentsVersion</Version>
+		<ModuleClass>com.genexus.exposurenotifications.ExposureNotificationsModule</ModuleClass>
+	</Android>
+	<Properties>
+		<Definition>Properties.xml</Definition>
+		<ObjClass>EXPOSUREALERTS</ObjClass>
+	</Properties>
+</ExtensionLibrary>

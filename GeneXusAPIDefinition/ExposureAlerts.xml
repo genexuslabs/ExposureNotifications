@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExportFile>
+  <KMW>
+    <MajorVersion>4</MajorVersion>
+    <MinorVersion>0</MinorVersion>
+    <Build>141716</Build>
+  </KMW>
+  <Objects>
+    <Object parentGuid="afa47377-41d5-4ae8-9755-6f53150aa361" user="Genexus\Genexus" versionDate="2020-05-16T19:23:34.0000000Z" lastUpdate="2020-05-15T09:24:12.0000000Z" checksum="7db261fca21ce6d85fc85e14f5ea169f" fullyQualifiedName="ExposureAlerts" moduleGuid="afa47377-41d5-4ae8-9755-6f53150aa361" guid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" name="ExposureAlerts" type="c88fffcd-b6f8-0000-8fec-00b5497e2117" description="Exposure Alerts">
+      <Part type="ed1b7b1c-2aaf-46eb-9ec5-db348f6fa3fc">
+        <Properties />
+      </Part>
+      <Part type="a5e6a251-2df0-44d8-adab-1da237574326">
+        <Properties />
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureAlerts</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-14T20:05:53.0000000Z" lastUpdate="2020-05-08T13:07:16.0000000Z" checksum="fdb160eb11b5a74a7968e254b4c5e1c8" fullyQualifiedName="ExposureAlerts.RiskLevel" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="463bb7d0-9267-4e4f-84fb-6e3fb1a558fc" name="RiskLevel" type="00972a17-9975-449e-aab1-d26165d51393" description="Risk Level">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>RiskLevel</Value></Property><Property><Name>Description</Name><Value>Risk Level</Value></Property><Property><Name>Length</Name><Value>1</Value></Property><Property><Name>AttMaxLen</Name><Value>1</Value></Property><Property><Name>IDEnumDefinedValues</Name><Value>0, Invalid, Invalid; 1, Lowest, Lowest; 2, Low, Low; 3, LowMedium, Low Medium; 4, Medium, Medium; 5, MediumHigh, Medium High; 6, High, High; 7, VeryHigh, Very High; 8, Highest, Highest</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-21T23:13:57.0000000Z" lastUpdate="2020-05-21T23:07:51.0000000Z" checksum="4d3523c085ae5f0969bdf565d84952c1" fullyQualifiedName="ExposureAlerts.RiskScore" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="80932094-0de7-4a78-a820-a670e700b912" name="RiskScore" type="00972a17-9975-449e-aab1-d26165d51393" description="Risk Score">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>RiskScore</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Numeric</Value></Property><Property><Name>Length</Name><Value>4</Value></Property><Property><Name>AttMaxLen</Name><Value>4</Value></Property><Property><Name>AttValueRange</Name><Value>0:4096</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-14T20:05:53.0000000Z" lastUpdate="2020-05-08T12:47:15.0000000Z" checksum="51394bee755e9d08838b2807a95944e4" fullyQualifiedName="ExposureAlerts.RiskWeight" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="61627b6e-fba0-42de-9ce6-31b07de5facb" name="RiskWeight" type="00972a17-9975-449e-aab1-d26165d51393" description="Risk Weight">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>RiskWeight</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Numeric</Value></Property><Property><Name>Length</Name><Value>3</Value></Property><Property><Name>AttMaxLen</Name><Value>3</Value></Property><Property><Name>AttValueRange</Name><Value>0:100</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-14T20:05:53.0000000Z" lastUpdate="2020-05-10T12:46:39.0000000Z" checksum="24b8b32edc85f5392154d9ca44db7ba0" fullyQualifiedName="ExposureAlerts.IntervalNumber" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="2a73be95-c6c2-406a-b3e9-b8a5346d2550" name="IntervalNumber" type="00972a17-9975-449e-aab1-d26165d51393" description="A number for each 10 minute window that is shared between all devices participating in the protocol. These time windows are based Unix Time (epoch 1970-01-01 00:00:00). It's calculated as: ENIN = &lt;Seconds since 1970-01-01 00:00:00&gt; / ( 60 * 10 )">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>IntervalNumber</Value></Property><Property><Name>Description</Name><Value>A number for each 10 minute window that is shared between all devices participating in the protocol. These time windows are based Unix Time (epoch 1970-01-01 00:00:00). It's calculated as: ENIN = &lt;Seconds since 1970-01-01 00:00:00&gt; / ( 60 * 10 )</Value></Property><Property><Name>Length</Name><Value>10</Value></Property><Property><Name>AttMaxLen</Name><Value>10</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-14T20:05:53.0000000Z" lastUpdate="2020-05-10T13:57:43.0000000Z" checksum="c49e19572fb03ef1ef444b7fb43f21f7" fullyQualifiedName="ExposureAlerts.DiagnosisKeyId" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="34d7ef5a-2048-4206-bff7-1dd6c9036ed5" name="DiagnosisKeyId" type="00972a17-9975-449e-aab1-d26165d51393" description="Diagnosis Key Id">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>DiagnosisKeyId</Value></Property><Property><Name>Length</Name><Value>10</Value></Property><Property><Name>AttMaxLen</Name><Value>10</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-16T18:25:28.0000000Z" lastUpdate="2020-05-16T17:06:11.0000000Z" checksum="b13d18ca8783412ad15b963851e4e2fa" fullyQualifiedName="ExposureAlerts.ExposureDetectionSessionResultId" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="7d2f6058-6fae-4933-8d83-54cb5f4e616a" name="ExposureDetectionSessionResultId" type="00972a17-9975-449e-aab1-d26165d51393" description="Exposure Detection Session Result Id">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureDetectionSessionResultId</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:VarChar</Value></Property><Property><Name>Length</Name><Value>100</Value></Property><Property><Name>AttMaxLen</Name><Value>100</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-21T23:13:57.0000000Z" lastUpdate="2020-05-21T23:07:39.0000000Z" checksum="d0f14a4bd43ee88e59dbc4b62964d3de" fullyQualifiedName="ExposureAlerts.RiskScoreLevel" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="c212acf5-e718-43d5-8aee-f065740f220f" name="RiskScoreLevel" type="00972a17-9975-449e-aab1-d26165d51393" description="Risk Score Level">
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>RiskScoreLevel</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Numeric</Value></Property><Property><Name>Length</Name><Value>1</Value></Property><Property><Name>AttMaxLen</Name><Value>1</Value></Property><Property><Name>AttValueRange</Name><Value>0:8</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="ARTECH\FPanizza" versionDate="2020-05-30T18:49:00.0000000Z" lastUpdate="2020-05-30T18:46:48.0000000Z" checksum="584f43d71e253ac83ce674e44f1805b7" fullyQualifiedName="ExposureAlerts.ExposureNotification" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="b062375b-70f6-4ce1-8941-c13ab0cc1c26" name="ExposureNotification" type="c163e562-42c6-4158-ad83-5b21a14cf30e" description="Exposure Notification">
+      <Part type="00000000-0000-0000-0002-000000000005">
+        <ExternalProperties>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>IsAvailable</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>isAvailable</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>isAvailable</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>Enabled</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>isEnabled</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>isEnabled</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>AuthorizationStatus</Value></Property><Property><Name>ExoItemBasedOn</Name><Value>Domain:APIAuthorizationStatus, GeneXus</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>authorizationStatus</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>authorizationStatus</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>LastExposureDetectionResult</Value></Property><Property><Name>ExoItemType</Name><Value>sdt:ExposureDetectionSessionResult, ExposureAlerts</Value></Property><Property><Name>ExoItemLength</Name><Value>0</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>lastExposureDetectionResult</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>getExposureDetectedSummary</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>ExposureDetected</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>exposureDetected</Value></Property><Property><Name>ExoItemExtTypeANDROID</Name><Value /></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>isExposureDetected</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>IntName</Name><Value>ExposureDetectionMinInterval</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>exposureDetectionMinInterval</Value></Property><Property><Name>ExternalSetMethodANDROID</Name><Value>setExposureDetectionMinInterval</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>getExposureDetectionMinInterval</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>IntName</Name><Value>ExposureInformationUserExplanation</Value></Property><Property><Name>ExoItemType</Name><Value>bas:VarChar</Value></Property><Property><Name>ExoItemLength</Name><Value>200</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>exposureInformationUserExplanation</Value></Property><Property><Name>ExternalSetMethodANDROID</Name><Value>setExposureInformationUserExplanation</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>getExposureInformationUserExplanation</Value></Property></Properties>
+          </ExternalProperty>
+          <ExternalProperty>
+            <Properties><Property><Name>ExoPropAccessType</Name><Value>idGet</Value></Property><Property><Name>IntName</Name><Value>BluetoothEnabled</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>bluetoothEnabled</Value></Property><Property><Name>ExternalGetMethodANDROID</Name><Value>isBluetoothEnabled</Value></Property></Properties>
+          </ExternalProperty>
+        </ExternalProperties>
+        <ExternalMethods>
+          <ExternalMethod>
+            <Parameters>
+              <Parameter>
+                <Properties><Property><Name>ExoParamAccessType</Name><Value>in</Value></Property><Property><Name>IntName</Name><Value>ExposureConfiguration</Value></Property><Property><Name>ExoItemType</Name><Value>sdt:ExposureConfiguration, ExposureAlerts</Value></Property><Property><Name>ExoItemLength</Name><Value>0</Value></Property></Properties>
+              </Parameter>
+            </Parameters>
+            <Properties><Property><Name>IntName</Name><Value>Start</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>start</Value></Property></Properties>
+          </ExternalMethod>
+          <ExternalMethod>
+            <Properties><Property><Name>IntName</Name><Value>Stop</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>stop</Value></Property></Properties>
+          </ExternalMethod>
+          <ExternalMethod>
+            <Properties><Property><Name>IntName</Name><Value>GetTemporaryExposureKeyHistoryForSharing</Value></Property><Property><Name>ExoItemType</Name><Value>sdt:TemporaryExposureKey, ExposureAlerts</Value></Property><Property><Name>ExoItemLength</Name><Value>0</Value></Property><Property><Name>ExoItemIsCollection</Name><Value>True</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>temporaryExposureKeyHistoryForSharing</Value></Property></Properties>
+          </ExternalMethod>
+          <ExternalMethod>
+            <Properties><Property><Name>IntName</Name><Value>GetLastExposureDetectionSessionDetails</Value></Property><Property><Name>ExoItemType</Name><Value>sdt:ExposureInfo, ExposureAlerts</Value></Property><Property><Name>ExoItemLength</Name><Value>0</Value></Property><Property><Name>ExoItemIsCollection</Name><Value>True</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>lastExposureDetectionSessionDetails</Value></Property><Property><Name>ExoNameANDROID</Name><Value>getLastDetails</Value></Property></Properties>
+          </ExternalMethod>
+          <ExternalMethod>
+            <Properties><Property><Name>IntName</Name><Value>ResetLastExposureDetectionResult</Value></Property><Property><Name>ExoItemType</Name><Value>bas:Boolean</Value></Property><Property><Name>ExoItemLength</Name><Value>4</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property><Property><Name>ExoNameIOS</Name><Value>resetLastExposureDetectionResult</Value></Property><Property><Name>ExoNameANDROID</Name><Value>resetExposureDetectionData</Value></Property></Properties>
+          </ExternalMethod>
+          <ExternalMethod>
+            <Properties><Property><Name>IntName</Name><Value>ShowBluetoothSettings</Value></Property><Property><Name>ExoMethodIsStatic</Name><Value>True</Value></Property></Properties>
+          </ExternalMethod>
+        </ExternalMethods>
+        <ExternalEvents>
+          <ExternalEvent>
+            <Properties><Property><Name>IntName</Name><Value>OnExposureDetected</Value></Property></Properties>
+          </ExternalEvent>
+        </ExternalEvents>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+        <Help>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-English</Language>
+            <Content />
+          </HelpItem>
+          <HelpItem>
+            <Language>88313f43-5eb2-0000-0028-e8d9f5bf9588-Spanish</Language>
+            <Content />
+          </HelpItem>
+        </Help>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureNotification</Value></Property><Property><Name>ExoNameIOS</Name><Value>GXEOExposureNotification</Value></Property><Property><Name>ExoNameANDROID</Name><Value>ExposureNotificationsAPIOffline</Value></Property><Property><Name>AndroidPackageName</Name><Value>com.genexus.exposurenotifications</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-21T23:43:22.0000000Z" lastUpdate="2020-05-21T23:42:18.0000000Z" checksum="3e3cb252d28ce59396bc3de376046494" fullyQualifiedName="ExposureAlerts.ExposureInfo" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="ae92f386-cec7-48b5-b4ec-9d3bdd1f0590" name="ExposureInfo" type="447527b5-9210-4523-898b-5dccb17be60a" description="Exposure Info">
+      <Part type="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+        <Level Name="ExposureInfo">
+          <LevelInfo guid="8af5eccd-f0c5-456c-a396-b28e3730cd7c" name="ExposureInfo" type="a76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Exposure Info" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>ExposureInfo</Value></Property></Properties>
+          </LevelInfo>
+          <Item guid="d11d5b2f-6ba1-4526-8d9b-0a0c6310a0af" name="Date" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Date the exposure occurred" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>Date</Value></Property><Property><Name>Description</Name><Value>Date the exposure occurred</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Date</Value></Property></Properties>
+          </Item>
+          <Item guid="8b3ab5b5-3dbc-42c8-83d4-406d9c240fe3" name="Duration" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Length of exposure (minutes) in 5 minute increments with a 30 minute maximum." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>Duration</Value></Property><Property><Name>Description</Name><Value>Length of exposure (minutes) in 5 minute increments with a 30 minute maximum.</Value></Property><Property><Name>AttCollection</Name><Value>False</Value></Property></Properties>
+          </Item>
+          <Item guid="e1879224-55fc-4940-8b4c-7bd9235338dd" name="TransmissionRiskLevel" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="The transmission risk associated with the matched diagnosis key" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TransmissionRiskLevel</Value></Property><Property><Name>Description</Name><Value>The transmission risk associated with the matched diagnosis key</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskLevel, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>False</Value></Property><Property><Name>AUTONUMBER</Name><Value>False</Value></Property><Property><Name>AUTONUMBER_START</Name><Value>1</Value></Property><Property><Name>AUTONUMBER_STEP</Name><Value>1</Value></Property><Property><Name>AUTONUMBER_FORREPLICATION</Name><Value>True</Value></Property><Property><Name>AttValueRange</Name><Value>0 1 2 3 4 5 6 7 8</Value></Property><Property><Name>ControlType</Name><Value>Combo Box</Value></Property></Properties>
+          </Item>
+          <Item guid="32973818-6401-4f6d-baf5-f2cb124bd60d" name="TotalRiskScore" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Total Risk Score" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TotalRiskScore</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScore, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="4a4e6fc1-0752-48d0-a25a-00be0b351af8" name="AttenuationValue" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Attenuation value of the peer device when exposure occurred." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>AttenuationValue</Value></Property><Property><Name>Description</Name><Value>Attenuation value of the peer device when exposure occurred.</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Numeric</Value></Property><Property><Name>Length</Name><Value>3</Value></Property><Property><Name>AttMaxLen</Name><Value>3</Value></Property></Properties>
+          </Item>
+          <Item guid="3685f3a8-48e9-407d-85d8-1cf17e991ae7" name="AttenuationDurations" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Durations in seconds at certain radio signal attenuations. First item = Sum of durations for all exposures when attenuation was &lt;= 50. Second Item = Sum of durations for all exposures when attenuation was &gt; 50." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>AttenuationDurations</Value></Property><Property><Name>Description</Name><Value>Durations in seconds at certain radio signal attenuations. First item = Sum of durations for all exposures when attenuation was &lt;= 50. Second Item = Sum of durations for all exposures when attenuation was &gt; 50.</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+        </Level>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureInfo</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-21T23:13:57.0000000Z" lastUpdate="2020-05-21T23:09:12.0000000Z" checksum="6c85d6db92619778da140cd7a4faa4e7" fullyQualifiedName="ExposureAlerts.ExposureConfiguration" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="91ef9a7f-7eb3-43e2-a9d6-aafb67d68457" name="ExposureConfiguration" type="447527b5-9210-4523-898b-5dccb17be60a" description="Exposure Configuration">
+      <Part type="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+        <Level Name="ExposureConfiguration">
+          <LevelInfo guid="7fae159c-dafa-48a8-b0c2-6a799e4ef0dd" name="ExposureConfiguration" type="a76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Exposure Configuration" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>ExposureConfiguration</Value></Property></Properties>
+          </LevelInfo>
+          <Item guid="0dd1fc96-bbac-4517-8ee5-7ca11792749b" name="MinimumRiskScore" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Minimum risk score. Excludes exposure incidents with scores lower than this." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>MinimumRiskScore</Value></Property><Property><Name>Description</Name><Value>Minimum risk score. Excludes exposure incidents with scores lower than this.</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScore, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>False</Value></Property><Property><Name>ControlType</Name><Value>Edit</Value></Property></Properties>
+          </Item>
+          <Item guid="cc682ba2-2baa-4a54-bbaa-713920232358" name="AttenuationScores" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Scores for attenuation buckets. Must contain 8 scores, one for each bucket: &gt; 73, &lt;= 73 &amp; &gt; 63, &lt;= 63 &amp; &gt; 51, &lt;= 51 * &gt; 33, &lt;= 33 &amp; &gt; 27, &lt;=27 &amp; &gt; 15, &lt;= 15 &amp; &gt; 10" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>AttenuationScores</Value></Property><Property><Name>Description</Name><Value>Scores for attenuation buckets. Must contain 8 scores, one for each bucket: &gt; 73, &lt;= 73 &amp; &gt; 63, &lt;= 63 &amp; &gt; 51, &lt;= 51 * &gt; 33, &lt;= 33 &amp; &gt; 27, &lt;=27 &amp; &gt; 15, &lt;= 15 &amp; &gt; 10</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScoreLevel, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+          <Item guid="f0d87ce1-6c52-4338-b113-72401a12e0a7" name="AttenuationWeight" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Attenuation Weight" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>AttenuationWeight</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskWeight, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="ea2a5c8e-d9c1-42d9-a252-1e2b032d39ea" name="DaysSinceLastExposureScores" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Scores for days since last exposure buckets. Must contain 8 scores, one for each bucket: &gt;= 14, &gt;= 12, &gt;= 10, &gt;= 8, &gt;= 6, &gt;= 4, &gt;= 2, &gt;= 0" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>DaysSinceLastExposureScores</Value></Property><Property><Name>Description</Name><Value>Scores for days since last exposure buckets. Must contain 8 scores, one for each bucket: &gt;= 14, &gt;= 12, &gt;= 10, &gt;= 8, &gt;= 6, &gt;= 4, &gt;= 2, &gt;= 0</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScoreLevel, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+          <Item guid="1878e9a8-f9e8-45eb-a33a-6cf85ba4d6f1" name="DaysSinceLastExposureWeight" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Days Since Last Exposure Weight" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>DaysSinceLastExposureWeight</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskWeight, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="5d9f1927-67fc-4507-8e21-3e6da708936d" name="DurationScores" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Scores for duration buckets. Must contain 8 scores, one for each bucket: = 0, &lt;= 5, &lt;= 10, &lt;= 15, &lt;= 20, &lt;=25, &lt;= 30, &gt; 30" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>DurationScores</Value></Property><Property><Name>Description</Name><Value>Scores for duration buckets. Must contain 8 scores, one for each bucket: = 0, &lt;= 5, &lt;= 10, &lt;= 15, &lt;= 20, &lt;=25, &lt;= 30, &gt; 30</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScoreLevel, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+          <Item guid="e5dcee48-816c-4ed1-8585-5c08c15e888d" name="DurationWeight" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Duration Weight" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>DurationWeight</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskWeight, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="8dd275ac-81d9-402b-b0de-62c1cd74ed25" name="TransmissionRiskScores" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Scores for transmission risk buckets. Must contain 8 scores." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TransmissionRiskScores</Value></Property><Property><Name>Description</Name><Value>Scores for transmission risk buckets. Must contain 8 scores.</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScoreLevel, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+          <Item guid="e7ed22e3-ea92-438d-ab14-23386d1c1dd7" name="TransmissionRiskWeight" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Transmission Risk Weight" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TransmissionRiskWeight</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskWeight, ExposureAlerts</Value></Property><Property><Name>AttCollection</Name><Value>False</Value></Property><Property><Name>AUTONUMBER</Name><Value>False</Value></Property><Property><Name>AUTONUMBER_START</Name><Value>1</Value></Property><Property><Name>AUTONUMBER_STEP</Name><Value>1</Value></Property><Property><Name>AUTONUMBER_FORREPLICATION</Name><Value>True</Value></Property><Property><Name>AttValueRange</Name><Value>0:100</Value></Property><Property><Name>ControlType</Name><Value>Edit</Value></Property><Property><Name>ControlValues</Name><Value /></Property></Properties>
+          </Item>
+        </Level>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureConfiguration</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-14T20:05:53.0000000Z" lastUpdate="2020-05-10T12:45:45.0000000Z" checksum="1b1fb39b11243c0fbcfc4e6125f7e1e5" fullyQualifiedName="ExposureAlerts.TemporaryExposureKey" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="4e0b9066-c157-4044-a00d-2c3732aff694" name="TemporaryExposureKey" type="447527b5-9210-4523-898b-5dccb17be60a" description="Temporary Exposure Key">
+      <Part type="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+        <Level Name="TemporaryExposureKey">
+          <LevelInfo guid="934df78b-3f58-4114-ac26-348bd70418ab" name="TemporaryExposureKey" type="a76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Temporary Exposure Key" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TemporaryExposureKey</Value></Property></Properties>
+          </LevelInfo>
+          <Item guid="89967a09-8b64-4ddf-bff2-e673913eb43c" name="KeyData" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="The randomly generated Temporary Exposure Key information in base 64 format" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>KeyData</Value></Property><Property><Name>Description</Name><Value>The randomly generated Temporary Exposure Key information in base 64 format</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:LongVarChar</Value></Property></Properties>
+          </Item>
+          <Item guid="aae71adb-c612-4fd1-9f03-c22551c9f0d0" name="RollingStartIntervalNumber" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="A number describing when a key starts." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>RollingStartIntervalNumber</Value></Property><Property><Name>Description</Name><Value>A number describing when a key starts.</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:IntervalNumber, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="7534b808-250d-4e7e-b502-245768e60df6" name="RollingPeriod" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Duration this key is valid. It's the number of 10-minute windows between key rolling." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>RollingPeriod</Value></Property><Property><Name>Description</Name><Value>Duration this key is valid. It's the number of 10-minute windows between key rolling.</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:IntervalNumber, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="ac7458ec-73a4-4c04-b947-59da5aa53400" name="TransmissionRiskLevel" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Risk of transmission associated with the person this key came from." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>TransmissionRiskLevel</Value></Property><Property><Name>Description</Name><Value>Risk of transmission associated with the person this key came from.</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskLevel, ExposureAlerts</Value></Property></Properties>
+          </Item>
+        </Level>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>TemporaryExposureKey</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-21T22:30:45.0000000Z" lastUpdate="2020-05-18T14:44:24.0000000Z" checksum="bf4df9ea120a97e1247fbccdcc27960a" fullyQualifiedName="ExposureAlerts.ExposureDetectionSessionResult" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="366b766a-8363-4c8e-8910-955089ae193d" name="ExposureDetectionSessionResult" type="447527b5-9210-4523-898b-5dccb17be60a" description="Exposure Detection Session Result">
+      <Part type="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+        <Level Name="ExposureDetectionSessionResult">
+          <LevelInfo guid="114b8de0-8443-485e-b089-a0da1758aea7" name="ExposureDetectionSessionResult" type="a76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Exposure Detection Session Result" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>ExposureDetectionSessionResult</Value></Property></Properties>
+          </LevelInfo>
+          <Item guid="2700799d-56cf-47d9-b4e5-18c5837cc5a8" name="Id" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Id" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>Id</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:ExposureDetectionSessionResultId, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="98d30a74-16d8-402b-99c5-1fafb21818c7" name="SessionTimeStamp" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Session Time Stamp" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>SessionTimeStamp</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:DateTime</Value></Property></Properties>
+          </Item>
+          <Item guid="e44afcf4-777d-4989-a1a0-99a708103b7d" name="LastExposureDate" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Last Exposure Date" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>LastExposureDate</Value></Property><Property><Name>ATTCUSTOMTYPE</Name><Value>bas:Date</Value></Property></Properties>
+          </Item>
+          <Item guid="5f66f218-6af2-45fe-8d30-976a4779c96a" name="MatchedKeyCount" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Number of diagnosis keys that matched." user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>MatchedKeyCount</Value></Property><Property><Name>Description</Name><Value>Number of diagnosis keys that matched.</Value></Property></Properties>
+          </Item>
+          <Item guid="1d9dc993-f4f0-4c59-ae10-a44e5a675d46" name="MaximumRiskScore" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Maximum Risk Score" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>MaximumRiskScore</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:RiskScore, ExposureAlerts</Value></Property></Properties>
+          </Item>
+          <Item guid="5cd4cd89-b3e5-4f65-bfd2-418f1f1f76a0" name="AttenuationDurations" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Durations in seconds at certain radio signal attenuations. First item = Sum of durations for all exposures when attenuation was &lt;= 50. Second Item = Sum of durations for all exposures when attenuation was &gt; 50. These durations are aggregated across all exp" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>AttenuationDurations</Value></Property><Property><Name>Description</Name><Value>Durations in seconds at certain radio signal attenuations. First item = Sum of durations for all exposures when attenuation was &lt;= 50. Second Item = Sum of durations for all exposures when attenuation was &gt; 50. These durations are aggregated across all exposures and capped at 30 minutes.</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property></Properties>
+          </Item>
+        </Level>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>ExposureDetectionSessionResult</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+    <Object parent="ExposureAlerts" parentType="c88fffcd-b6f8-0000-8fec-00b5497e2117" parentGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" user="Genexus\Genexus" versionDate="2020-05-16T18:25:28.0000000Z" lastUpdate="2020-05-16T17:15:01.0000000Z" checksum="ddcb39bffe7aa38edbdf06dd5221575e" fullyQualifiedName="ExposureAlerts.DiagnosisKeyDataProviderResult" moduleGuid="36ab2fad-f9cf-42c0-a6aa-19d41dab68ed" guid="31302034-1d21-48d8-8234-41e6f18d655c" name="DiagnosisKeyDataProviderResult" type="447527b5-9210-4523-898b-5dccb17be60a" description="Diagnosis Key Data Provider Result">
+      <Part type="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+        <Level Name="DiagnosisKeyDataProviderResult">
+          <LevelInfo guid="ae9d09e9-54e2-4736-b6a2-e298fc951b9e" name="DiagnosisKeyDataProviderResult" type="a76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Diagnosis Key Data Provider Result" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>DiagnosisKeyDataProviderResult</Value></Property></Properties>
+          </LevelInfo>
+          <Item guid="c8786a02-0222-4e9a-980f-2a5c68eaf557" name="Keys" type="f76e9340-bdb9-445d-8f81-cfd4ddd0b0f3" description="Keys" user="Genexus\Genexus">
+            <Properties><Property><Name>Name</Name><Value>Keys</Value></Property><Property><Name>idBasedOn</Name><Value>Domain:Url, GeneXus</Value></Property><Property><Name>AttCollection</Name><Value>True</Value></Property><Property><Name>idCollectionItemName</Name><Value>URL</Value></Property></Properties>
+          </Item>
+        </Level>
+        <Properties><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+      </Part>
+      <Part type="babf62c5-0111-49e9-a1c3-cc004d90900a">
+        <Properties />
+      </Part>
+      <Properties><Property><Name>Name</Name><Value>DiagnosisKeyDataProviderResult</Value></Property><Property><Name>IsDefault</Name><Value>False</Value></Property></Properties>
+    </Object>
+  </Objects>
+  <Dependencies>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Object" Id="c88fffcd-b6f8-0000-8fec-00b5497e2117">
+      <Properties Name="Module" PackageName="Artech.Architecture" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="ed1b7b1c-2aaf-46eb-9ec5-db348f6fa3fc">
+      <Properties Name="Content" PackageName="Artech.Architecture" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="a5e6a251-2df0-44d8-adab-1da237574326">
+      <Properties Name="Diagram" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="babf62c5-0111-49e9-a1c3-cc004d90900a">
+      <Properties Name="Documentation" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Object" Id="00972a17-9975-449e-aab1-d26165d51393">
+      <Properties Name="Domain" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="ad3ca970-19d0-44e1-a7b7-db05556e820c">
+      <Properties Name="Help" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Object" Id="c163e562-42c6-4158-ad83-5b21a14cf30e">
+      <Properties Name="External Object" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="00000000-0000-0000-0002-000000000005">
+      <Properties Name="Structure" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Object" Id="447527b5-9210-4523-898b-5dccb17be60a">
+      <Properties Name="Structured Data Type" PackageName="GenexusBL" />
+    </Reference>
+    <Reference Package="3ea7e1c6-b849-4df9-931a-070171a8a2f0" Type="Part" Id="5c2aa9da-8fc4-4b6b-ae02-8db4fa48976a">
+      <Properties Name="Structure" PackageName="GenexusBL" />
+    </Reference>
+  </Dependencies>
+  <ObjectsIdentityMapping>
+    <ObjectIdentity Type="c88fffcd-b6f8-0000-8fec-00b5497e2117" Name="Root Module" parent="">
+      <Guid>afa47377-41d5-4ae8-9755-6f53150aa361</Guid>
+    </ObjectIdentity>
+    <ObjectIdentity Type="d4876646-98dd-419b-8c1c-896f83c48368" Name="Attribute" parent="">
+      <Guid>7f83da99-bc71-5230-bf17-0352ce27c129</Guid>
+    </ObjectIdentity>
+    <ObjectIdentity Type="00972a17-9975-449e-aab1-d26165d51393" Name="APIAuthorizationStatus" parent="GeneXus">
+      <Guid>b670485f-ba99-4e80-91d9-595bd8e50edf</Guid>
+    </ObjectIdentity>
+    <ObjectIdentity Type="c88fffcd-b6f8-0000-8fec-00b5497e2117" Name="GeneXus" parent="">
+      <Guid>4f454e73-7d8f-4a0f-908a-1a355f3634a5</Guid>
+    </ObjectIdentity>
+    <ObjectIdentity Type="00972a17-9975-449e-aab1-d26165d51393" Name="Url" parent="GeneXus">
+      <Guid>b67b7a1b-60cd-4f53-8610-f94684abcdc7</Guid>
+    </ObjectIdentity>
+  </ObjectsIdentityMapping>
+</ExportFile>

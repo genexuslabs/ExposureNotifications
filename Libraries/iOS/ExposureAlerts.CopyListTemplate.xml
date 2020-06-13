@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CopyList xmlns="http://schemas.genexus.com/ExtensionCopyFile.xsd">
+$if(Main.AppleDevice_iOS)$
+	<CopyFile Name="GXActionExtObjExposureNotificationHandler.swift"/>
+	<CopyFile Name="GXEOExposureNotification.swift"/>
+	<CopyFile Name="GXExposureAlertsApplicationModelLoaderExtension.swift"/>
+	<CopyFile Name="GXExposureAlertsExtensionLibrary.swift"/>
+	<CopyFile Name="GXExposureAlertsLocalStorage.swift"/>
+	<CopyFile Name="GXExposureAlertsManager.swift"/>
+$endif$
+</CopyList>
