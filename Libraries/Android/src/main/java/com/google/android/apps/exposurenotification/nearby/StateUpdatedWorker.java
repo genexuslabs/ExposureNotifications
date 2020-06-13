@@ -94,9 +94,6 @@ public class StateUpdatedWorker extends ListenableWorker {
 					// add token to last available token
 					TokenRepository.upsertToken(TokenEntity.create(token, true));
 
-
-					// TODO: GX update LastPerformedExposureDetectionSessionTimeStamp ?
-
 					if (shouldRunEvent(token)) {
 						setTokenTime(token);
 						Services.Log.debug("start EVENT_EXPOSURE_DETECTED event");
@@ -120,8 +117,6 @@ public class StateUpdatedWorker extends ListenableWorker {
 	        } else {
               	// No matches so we show no notification and just delete the token.
 				Services.Log.debug("StateUpdatedWorker no matches 0 ");
-
-				// TODO: GX update LastPerformedExposureDetectionSessionTimeStamp ?
 
 				return tokenRepository.deleteByTokensAsync(token);
             }
