@@ -1,9 +1,9 @@
 apply from: rootProject.file('android-library.gradle')
 
 // Fetch server details from command line arguments (for CI)
-ext.key_server_upload_uri = project.hasProperty('UPLOAD_URI') ? project.getProperty('UPLOAD_URI') : "https://www.gub.uy/"
+ext.key_server_upload_uri = project.hasProperty('UPLOAD_URI') ? project.getProperty('UPLOAD_URI') : "REPLACE-ME"
 // use our server url
-ext.key_server_download_base_uri = project.hasProperty('DOWNLOAD_URI') ? project.getProperty('DOWNLOAD_URI') : "https://www.gub.uy/"
+ext.key_server_download_base_uri = project.hasProperty('DOWNLOAD_URI') ? project.getProperty('DOWNLOAD_URI') : "REPLACE-ME"
 ext.safetynet_api_key = project.hasProperty('SAFETYNET_KEY') ? project.getProperty('SAFETYNET_KEY') : "REPLACE-ME"
 
 android {
