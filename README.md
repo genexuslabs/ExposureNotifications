@@ -22,7 +22,9 @@ This Exposure Notifications module offers a simple way for GeneXus developers to
 ## Usage
 
 ### Step 1 - Add Libraries to GeneXus
-Copy the content of the [Libraries](./Libraries) folder to the corresponding Libraries folder under your GeneXus installation (eg:&nbsp;C:\Program Files (x86)\GeneXus\GeneXus16\Libraries)
+Copy the content of the [Libraries](./Libraries) folder to the corresponding Libraries folder under your GeneXus installation as follows:
+1. Create a folder named `ExposureNotifications` in the Libraries folder under your GeneXus installation (eg: C:\Program Files (x86)\GeneXus\GeneXus16\Libraries)
+2. Copy the content of the [Libraries](./Libraries) folder in this repository to the `ExposureNotifications` folder in your GeneXus installation.
 
 **Note**: Both [Libraries/Android](./Libraries/Android) and [Libraries/iOS](./Libraries/iOS) include their full source code, which is covered by the [Apache License 2.0](./LICENSE) for this repository.
 
