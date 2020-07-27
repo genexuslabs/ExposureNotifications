@@ -32,7 +32,8 @@ Copy the content of the [Libraries](./Libraries) folder to the corresponding Lib
 Import the [ExposureAlerts.xml](./GeneXusAPIDefinition/ExposureAlerts.xml) in your GeneXus Knowledgebase. This will add a ExposureAlerts module that includes all the GeneXus objects you need to interact with the API.
 
 ### Step 3 - Android specific , buld ExposureNotifications module.
-Run the command gradlew uploadArchives from the ExposureNotificationsModule directory. This will add a ExposureNotificationsModule to the Genexus Android repository.
+Run the command `gradlew uploadArchives` from the `ExposureNotificationsModule` directory. 
+This will add a ExposureNotificationsModule to the Genexus Android repository.
 More info in build a Genexus Android module [here](https://github.com/genexuslabs/SDExtensionsSample) 
 
 ## GeneXus Exposure Notifications Objects
