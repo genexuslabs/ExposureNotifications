@@ -40,7 +40,9 @@ import org.threeten.bp.Duration;
  */
 public class DiagnosisKeyFileSubmitter {
   private static final String TAG = "KeyFileSubmitter";
-  private static final Duration API_TIMEOUT = Duration.ofSeconds(10);
+	// Use a very very long timeout, in case of a stress-test that supplies a very large number of
+	// diagnosis key files.
+	private static final Duration PROVIDE_KEYS_TIMEOUT = Duration.ofMinutes(1);
 
   private final ExposureNotificationClientWrapper client;
 
@@ -74,6 +76,7 @@ public class DiagnosisKeyFileSubmitter {
         () -> {
           for (KeyFileBatch b : batches) {
             for (File f : b.files()) {
+				Services.Log.debug(" delete temp file " + f.getAbsolutePath() );
               f.delete();
             }
           }
@@ -91,7 +94,7 @@ public class DiagnosisKeyFileSubmitter {
 	  Services.Log.debug(" submitBatch : token " + token);
   	return TaskToFutureAdapter.getFutureWithTimeout(
         client.provideDiagnosisKeys(batch.files(), token),
-        API_TIMEOUT.toMillis(),
+		PROVIDE_KEYS_TIMEOUT.toMillis(),
         TimeUnit.MILLISECONDS,
         AppExecutors.getScheduledExecutor());
   }

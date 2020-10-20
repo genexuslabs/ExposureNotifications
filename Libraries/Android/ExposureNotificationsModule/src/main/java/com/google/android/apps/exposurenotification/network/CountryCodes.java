@@ -21,8 +21,6 @@ import android.content.Context;
 import android.telephony.TelephonyManager;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
 import java.util.List;
 
 /**
@@ -48,11 +46,13 @@ class CountryCodes {
    * based on MCC. A production implementation might retain and return a list of the user's relevant
    * country codes for the past N days.
    */
-  ListenableFuture<List<String>> getExposureRelevantCountryCodes() {
+  List<String> getExposureRelevantCountryCodes() {
     String countryCode = telephonyManager.getNetworkCountryIso().toUpperCase();
     if (Strings.isNullOrEmpty(countryCode)) {
       countryCode = DEFAULT_COUNTRY;
     }
-    return Futures.immediateFuture(ImmutableList.of(DEFAULT_COUNTRY));
+    // Using hard-coded default "UY" because it's required by our testing server.
+    // Above TelephonyManager code retained for illustration and future use.
+    return ImmutableList.of(DEFAULT_COUNTRY);
   }
 }

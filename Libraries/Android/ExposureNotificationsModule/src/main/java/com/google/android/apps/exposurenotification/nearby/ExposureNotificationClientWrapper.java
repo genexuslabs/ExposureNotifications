@@ -26,6 +26,7 @@ import com.google.android.gms.nearby.exposurenotification.ExposureConfiguration;
 import com.google.android.gms.nearby.exposurenotification.ExposureInformation;
 import com.google.android.gms.nearby.exposurenotification.ExposureNotificationClient;
 import com.google.android.gms.nearby.exposurenotification.ExposureSummary;
+import com.google.android.gms.nearby.exposurenotification.ExposureWindow;
 import com.google.android.gms.nearby.exposurenotification.TemporaryExposureKey;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
@@ -124,6 +125,7 @@ public class ExposureNotificationClientWrapper {
    *
    * <p>If the token matches the fake tokens, it will return fake results.
    */
+  @SuppressWarnings("deprecation")
   public Task<List<ExposureInformation>> getExposureInformation(String token) {
     if (FAKE_TOKEN_1.equals(token)) {
       long millisInDay = 24L * 60L * 60L * 1000L;
@@ -159,5 +161,10 @@ public class ExposureNotificationClientWrapper {
   //public Task<Void> resetTemporaryExposureKey() {
   //  return exposureNotificationClient.resetTemporaryExposureKey();
   //}
+
+	// New API method.
+	public Task<List<ExposureWindow>> getExposureWindows() {
+		return exposureNotificationClient.getExposureWindows(ExposureNotificationClient.TOKEN_A);
+	}
 
 }

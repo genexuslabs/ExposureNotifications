@@ -94,6 +94,7 @@ public class StateUpdatedWorker extends ListenableWorker {
 					// add token to last available token
 					TokenRepository.upsertToken(TokenEntity.create(token, true));
 
+
 					if (shouldRunEvent(token)) {
 						setTokenTime(token);
 						Services.Log.debug("start EVENT_EXPOSURE_DETECTED event");

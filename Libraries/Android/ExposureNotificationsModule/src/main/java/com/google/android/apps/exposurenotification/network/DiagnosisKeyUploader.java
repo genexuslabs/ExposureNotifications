@@ -111,7 +111,7 @@ public class DiagnosisKeyUploader {
     }
 
     // In several steps, we need all the relevant countries for the user's last N days.
-    ListenableFuture<List<String>> countries = countryCodes.getExposureRelevantCountryCodes();
+    List<String> countries = countryCodes.getExposureRelevantCountryCodes();
 
     // The flow below assumes a certain scheme for users roaming between countries/regions, but the
     // true roaming plan is not known to the author at the time of writing. The temporary scheme
@@ -122,7 +122,7 @@ public class DiagnosisKeyUploader {
     // 3. Send all Temporary Tracing Keys from the past N days to all servers.
 
     // We start with that list of countries.
-    return FluentFuture.from(countries)
+    return FluentFuture.from(Futures.immediateFuture(countries))
         // From these we find the URIs for key servers for that list of countries. There need not be
         // a one-to-one relationship between country codes and server URIs.
         .transformAsync(uris::getUploadUris, AppExecutors.getLightweightExecutor())
@@ -132,7 +132,7 @@ public class DiagnosisKeyUploader {
         // To each of these KeySubmissions we add the full list of applicable country codes.
         .transformAsync(
             submissions ->
-                FluentFuture.from(countries)
+                FluentFuture.from(Futures.immediateFuture(countries))
                     .transformAsync(
                         countryCodes -> addCountryCodes(submissions, countryCodes),
                         AppExecutors.getLightweightExecutor()),

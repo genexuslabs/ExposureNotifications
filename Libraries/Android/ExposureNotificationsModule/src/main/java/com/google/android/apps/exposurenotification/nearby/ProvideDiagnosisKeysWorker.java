@@ -18,7 +18,6 @@
 package com.google.android.apps.exposurenotification.nearby;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
@@ -84,7 +83,7 @@ public class ProvideDiagnosisKeysWorker extends ListenableWorker {
   @Override
   @SuppressWarnings("deprecation")
   public ListenableFuture<Result> startWork() {
-    Log.d(TAG, "Starting worker downloading diagnosis key files and submitting "
+	  Services.Log.debug(TAG, "Starting worker downloading diagnosis key files and submitting "
         + "them to the API for exposure detection, then storing the token used.");
     final String token = generateRandomToken();
 	  Services.Log.debug("startWork " + token);
@@ -114,7 +113,7 @@ public class ProvideDiagnosisKeysWorker extends ListenableWorker {
           return Result.success();
         }, AppExecutors.getBackgroundExecutor())
         .catching(Exception.class, x -> {
-          Log.e(TAG, "Failure to provide diagnosis keys", x);
+			Services.Log.error(TAG, "Failure to provide diagnosis keys", x);
 
 			// TODO: consider a retry in X min again for N times?
 			Services.Log.debug(" failure to provide diagnosis keys , retry : " );
@@ -167,7 +166,7 @@ public class ProvideDiagnosisKeysWorker extends ListenableWorker {
 		WorkManager workManager = WorkManager.getInstance(context);
 		//  use our interval in minutes.
 		int repeatInterval = ExposureNotificationsAPIOffline.getExposureDetectionMinInterval();
-		Services.Log.debug(" Schedule ProvideDiagnosisKeys worker by " + repeatInterval + " minutes ");
+		Services.Log.debug(" Schedule ProvideDiagnosisKeys worker by " + repeatInterval + " minutes with delay");
 		PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(
 			ProvideDiagnosisKeysWorker.class, repeatInterval, TimeUnit.MINUTES)
 			.setConstraints(

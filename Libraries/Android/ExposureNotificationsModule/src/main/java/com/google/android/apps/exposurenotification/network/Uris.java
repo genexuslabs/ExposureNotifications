@@ -19,11 +19,11 @@ package com.google.android.apps.exposurenotification.network;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import androidx.concurrent.futures.CallbackToFutureAdapter;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.StringRequest;
+import com.artech.base.services.Services;
 import com.genexus.exposurenotifications.ExposureNotificationsAPI;
 import com.genexus.exposurenotifications.R;
 import com.google.android.apps.exposurenotification.common.AppExecutors;
@@ -92,7 +92,7 @@ public class Uris {
   ListenableFuture<ImmutableList<Uri>> getUploadUris(List<String> regionsIsoAlpha2) {
     // Check if the app has been built with default URIs first.
     if (hasDefaultUris()) {
-      Log.w(TAG, "Attempting to use servers while compiled with default URIs!");
+		Services.Log.warning(TAG, "Attempting to use servers while compiled with default URIs!");
       return Futures.immediateFuture(ImmutableList.of());
     }
     // In this test instance we use one server for all regions.
@@ -117,14 +117,14 @@ public class Uris {
 		//	perRegionBatches.add(regionBatches(region));
 		//}
 
-    	Log.d(TAG, "Getting download URIs for " + regionsIsoAlpha2.size() + " regions");
+		Services.Log.debug(TAG, "Getting download URIs for " + regionsIsoAlpha2.size() + " regions");
     	List<ListenableFuture<ImmutableList<KeyFileBatch>>> perRegionBatches = new ArrayList<>();
     	// get batches from UY region , using DP.
 		// load PerRegionBatches.
 		ArrayList<String> urls = ExposureNotificationsAPI.getKeysDPResult();
 		if (urls==null)
 		{
-			Log.e(TAG, "Error executing Keys DP!");
+			Services.Log.error(TAG, "Error executing Keys DP!");
 			return Futures.immediateFailedFuture(new NotDPFoundException());
 		}
 
@@ -147,7 +147,7 @@ public class Uris {
         .transform(
             indexContent -> {
               List<String> indexEntries = WHITESPACE_SPLITTER.splitToList(indexContent);
-              Log.d(TAG, "Index file has " + indexEntries.size() + " lines.");
+				Services.Log.debug(TAG, "Index file has " + indexEntries.size() + " lines.");
               Map<Long, List<Uri>> batches = new HashMap<>();
 
               // Parse out each line of the index file and split them into batches as indicated by
@@ -160,7 +160,7 @@ public class Uris {
                       "Failed to parse batch num from File [" + indexEntry + "].");
                 }
                 Long batchNum = Long.valueOf(m.group(1));
-                Log.d(
+				  Services.Log.debug(
                     TAG, String.format("Batch number %s from indexEntry %s", batchNum, indexEntry));
                 if (!batches.containsKey(batchNum)) {
                   batches.put(batchNum, new ArrayList<>());
@@ -174,7 +174,7 @@ public class Uris {
               for (Map.Entry<Long, List<Uri>> batch : batches.entrySet()) {
                 builder.add(KeyFileBatch.ofUris(regionCode, batch.getKey(), batch.getValue()));
               }
-              Log.d(TAG, String.format("Batches: %s", builder.build()));
+				Services.Log.debug(TAG, String.format("Batches: %s", builder.build()));
               return builder.build();
             },
             AppExecutors.getBackgroundExecutor());
@@ -187,7 +187,7 @@ public class Uris {
 
           ErrorListener errorListener =
               err -> {
-                Log.e(TAG, "Error getting keyfile index.");
+				  Services.Log.error(TAG, "Error getting keyfile index.");
                 completer.setCancelled();
               };
 
@@ -208,7 +208,7 @@ public class Uris {
 
   // custom implementation based on DP:
 	private ListenableFuture<ImmutableList<KeyFileBatch>> regionBatchesUY(ArrayList<String> urls) {
-		Log.d(TAG, "Index file has " + urls.size() + " lines.");
+		Services.Log.debug(TAG, "Index file has " + urls.size() + " lines.");
 		Map<Long, List<Uri>> batches = new HashMap<>();
 
 		// Parse out each line of the index file and split them into batches as indicated by
@@ -223,7 +223,7 @@ public class Uris {
 					"Failed to parse batch num from File [" + indexEntry + "].");
 			}
 			Long batchNum = Long.valueOf(m.group(1));
-			Log.d(
+			Services.Log.debug(
 				TAG, String.format("Batch number %s from indexEntry %s", batchNum, indexEntry));
 			if (!batches.containsKey(batchNum)) {
 				batches.put(batchNum, new ArrayList<>());
@@ -237,7 +237,7 @@ public class Uris {
 		for (Map.Entry<Long, List<Uri>> batch : batches.entrySet()) {
 			builder.add(KeyFileBatch.ofUris("UY", batch.getKey(), batch.getValue()));
 		}
-		Log.d(TAG, String.format("Batches: %s", builder.build()));
+		Services.Log.debug(TAG, String.format("Batches: %s", builder.build()));
 		return Futures.immediateFuture(builder.build());
 	}
 

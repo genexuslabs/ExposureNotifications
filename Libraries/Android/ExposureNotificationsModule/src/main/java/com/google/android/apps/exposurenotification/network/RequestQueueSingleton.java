@@ -18,25 +18,27 @@
 package com.google.android.apps.exposurenotification.network;
 
 import android.content.Context;
-import androidx.annotation.VisibleForTesting;
 import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.BaseHttpStack;
-import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.NoCache;
 
-/** Holder for a singleton {@link Volley} {@link com.android.volley.RequestQueue}. */
+/**
+ * Holder for a singleton or Volley's {@link com.android.volley.RequestQueue}.
+ */
 public class RequestQueueSingleton {
 
   private static RequestQueue queue;
+	private	static int maxSerialThreadPoolSize = 1;
 
   public static RequestQueue get(Context context) {
     if (queue == null) {
-      queue = Volley.newRequestQueue(context.getApplicationContext());
+      // In this reference design, we never want to return cached data; it complicates end to end
+      // testing.
+		// Download only one file at a time, parallel over https fails in some devices.
+      queue = new RequestQueue(new NoCache(), new BasicNetwork(new HurlStack()), maxSerialThreadPoolSize);
+      queue.start();
     }
     return queue;
-  }
-
-  @VisibleForTesting
-  static void setHttpStackForTests(Context context, BaseHttpStack stackForTests) {
-    queue = Volley.newRequestQueue(context.getApplicationContext(), stackForTests);
   }
 }

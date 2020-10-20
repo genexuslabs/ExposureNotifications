@@ -5,6 +5,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,14 +15,11 @@ import androidx.work.WorkManager;
 import com.artech.actions.ActionExecution;
 import com.artech.actions.ApiAction;
 import com.artech.activities.ActivityHelper;
-import com.artech.android.ContextImpl;
 import com.artech.application.MyApplication;
 import com.artech.base.application.IGxObject;
 import com.artech.base.application.OutputResult;
 import com.artech.base.metadata.enums.Connectivity;
 import com.artech.base.metadata.expressions.Expression;
-import com.artech.base.metadata.loader.ApplicationLoader;
-import com.artech.base.metadata.loader.LoadResult;
 import com.artech.base.metadata.loader.MetadataLoader;
 import com.artech.base.model.Entity;
 import com.artech.base.model.EntityFactory;
@@ -31,6 +29,7 @@ import com.artech.base.providers.IApplicationServer;
 import com.artech.base.services.Services;
 import com.artech.externalapi.ExternalApi;
 import com.artech.externalapi.ExternalApiResult;
+import com.artech.init.AppInitRunnable;
 import com.google.android.apps.exposurenotification.activities.utils.ExposureNotificationPermissionHelper;
 import com.google.android.apps.exposurenotification.common.StringUtils;
 import com.google.android.apps.exposurenotification.nearby.ProvideDiagnosisKeysWorker;
@@ -313,10 +312,14 @@ public class ExposureNotificationsAPI extends ExternalApi {
 	{
 		temporaryExposureKeyEntity.setProperty("KeyData", BASE64_LOWER.encode(tek.getKeyData()));
 		temporaryExposureKeyEntity.setProperty("RollingStartIntervalNumber", tek.getRollingStartIntervalNumber());
-		// Fix GPS bug
 		int rollingPeriod = tek.getRollingPeriod();
-		if (rollingPeriod==0)
-			rollingPeriod=144;
+		Services.Log.debug("ExposureKeyToEntity startInterval " + tek.getRollingStartIntervalNumber() + " rollingPeriod  " + rollingPeriod  );
+		// Fix GPS bug
+		if (rollingPeriod==0) {
+			rollingPeriod = 144;
+			Services.Log.debug("ExposureKeyToEntity change rollingPeriod to default 144");
+		}
+
 		temporaryExposureKeyEntity.setProperty("RollingPeriod", rollingPeriod);
 		temporaryExposureKeyEntity.setProperty("TransmissionRiskLevel", tek.getTransmissionRiskLevel());
 		Services.Log.debug("Temp Key: " + temporaryExposureKeyEntity.toDebugString());
@@ -431,18 +434,25 @@ public class ExposureNotificationsAPI extends ExternalApi {
 	private static void checkMetadata()
 	{
 		if (!Services.Application.isLoaded()) {
-			Services.Log.debug("checkMetadata before fireApplicationEvent reload app");
+			Log.d("ExpNotAPI", "checkMetadata before fireApplicationEvent reload app");
 			// try load metadata
-			LoadResult loadResult;
-			ApplicationLoader applicationLoader = new ApplicationLoader(MyApplication.getApp());
+
+			// wait if app is loading and start loading metadata also.
+			Log.d("ExpNotAPI", "sleep for 3 sec ");
 			try {
-				// Load the Application.
-				loadResult = applicationLoader.loadApplication(new ContextImpl(MyApplication.getAppContext()), MyApplication.getAppContext(), null);
-			} catch (OutOfMemoryError ex) {
-				// Notify the user that the app could not load correctly due to reduced memory.
-				loadResult = LoadResult.error(ex);
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				Log.d("ExpNotAPI", "sleep fail " + e.getMessage());
 			}
-			Services.Log.debug("checkMetadata App metadata reload " + loadResult.getCode());
+
+			// return true if metadata is loaded correctly.
+			boolean result = AppInitRunnable.checkAndLoadApplicationResult();
+			if (result)
+				Log.d("ExpNotAPI", "Metadata Loaded correctly " );
+			else
+				Log.d("ExpNotAPI", "Metadata Failed to load " );
+
+			// if metadata not load dp could fails, will work next try.
 		}
 	}
 
@@ -551,6 +561,14 @@ public class ExposureNotificationsAPI extends ExternalApi {
 			workManager.enqueue(new OneTimeWorkRequest.Builder(ProvideDiagnosisKeysWorker.class).build());
 			*/
 
+			//test
+			// black date ENLastExposureDate
+			//ClientStorageAPIOffline.secureSet("ENLastExposureDate", "01/01/2020");
+			// force sync.
+			//Services.Log.debug(" Start success , FORCE sync server TEST " );
+			//WorkManager workManager = WorkManager.getInstance(MyApplication.getInstance());
+			//workManager.enqueue(new OneTimeWorkRequest.Builder(ProvideDiagnosisKeysWorker.class).setInitialDelay(1, TimeUnit.MINUTES).build());
+			//end test
 
 			// schedule server api download,
 			//ProvideDiagnosisKeysWorker.scheduleDailyProvideDiagnosisKeys(MyApplication.getInstance());
@@ -694,6 +712,15 @@ public class ExposureNotificationsAPI extends ExternalApi {
 			// schedule sync server API , if enabled true
 			boolean enabled = ExposureNotificationsAPIOffline.isEnabledInternal();
 			Services.Log.debug(" Start success , schedule sync server Enabled: " + enabled);
+
+			// Test
+			// blank date ENLastExposureDate
+			//ClientStorageAPIOffline.secureSet("ENLastExposureDate", "01/01/2020");
+			//Services.Log.debug(" Start success , FORCE sync server TEST " );
+			//WorkManager workManager = WorkManager.getInstance(MyApplication.getInstance());
+			//workManager.enqueue(new OneTimeWorkRequest.Builder(ProvideDiagnosisKeysWorker.class).setInitialDelay(1, TimeUnit.MINUTES).build());
+			// endTest
+
 			if (enabled) {
 				boolean shouldRunSync = ExposureNotificationsAPIOffline.shouldRunSync();
 				if (shouldRunSync)

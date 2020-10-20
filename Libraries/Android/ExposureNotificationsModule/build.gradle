@@ -35,7 +35,7 @@ dependencies {
 	// time
 	api 'com.jakewharton.threetenabp:threetenabp:1.2.4'
 
-	// api Google play services beta, play-services-nearby-18.0.2-eap
+	// api Google play services beta, play-services-nearby-18.0.3-eap
 	api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
 	// Auto-value
