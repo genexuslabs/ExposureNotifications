@@ -190,13 +190,13 @@ extension GXExposureAlertsLocalStorage {
 	
 	struct ExposureConfiguration: Codable {
 		var minimumRiskScore: UInt16
-		var attenuationLevelValues: [ENRiskLevelValue]
+		var attenuationLevelValues: [UInt8] // [ENRiskLevelValue]
 		var attenuationWeight: Double
-		var daysSinceLastExposureLevelValues: [ENRiskLevelValue]
+		var daysSinceLastExposureLevelValues: [UInt8] // [ENRiskLevelValue]
 		var daysSinceLastExposureWeight: Double
-		var durationLevelValues: [ENRiskLevelValue]
+		var durationLevelValues: [UInt8] // [ENRiskLevelValue]
 		var durationWeight: Double
-		var transmissionRiskLevelValues: [ENRiskLevelValue]
+		var transmissionRiskLevelValues: [UInt8] // [ENRiskLevelValue]
 		var transmissionRiskWeight: Double
 	}
 	
@@ -231,9 +231,9 @@ extension GXExposureAlertsLocalStorage {
 	struct ExposureInfo: Codable {
 		var date: Date
 		var duration: TimeInterval
-		var transmissionRiskLevel: ENRiskLevel
+		var transmissionRiskLevel: UInt8 // ENRiskLevel
 		var totalRiskScore: UInt16
-		var attenuationValue: ENAttenuation
+		var attenuationValue: UInt8 // ENAttenuation
 		var attenuationDurations: [Double]
 	}
 }
