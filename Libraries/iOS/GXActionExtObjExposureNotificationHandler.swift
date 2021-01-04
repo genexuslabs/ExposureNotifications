@@ -152,12 +152,12 @@ class GXActionExtObjExposureNotificationHandler: GXActionExternalObjectHandler {
 
 	#if DEBUG
 	@objc public func gxActionExObjMethodHandler_StartDetectionSession() {
-		if #available(iOS 13.5, *) {
-			_ = GXExposureAlertsManager.shared.detectExposures()
-			onFinishedExecutingWithSuccess()
-		} else {
+		guard #available(iOS 12.5, *), GXExposureAlertsManager.isENManagerAvailable, GXExposureAlertsManager.isDeviceSupported else {
 			onFinishedExecutingWithError(GXEOExposureNotification.notAvailableError)
+			return
 		}
+		_ = GXExposureAlertsManager.shared.detectExposures()
+		onFinishedExecutingWithSuccess()
 	}
 	#endif
 }

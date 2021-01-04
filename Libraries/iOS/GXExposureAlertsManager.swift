@@ -6,14 +6,16 @@ import Foundation
 import ExposureNotification
 import BackgroundTasks
 
-@available(iOS 13.5, *)
+@available(iOS 12.5, *)
 class GXExposureAlertsManager {
 	
 	static let shared = GXExposureAlertsManager()
 	
 	internal static let isDeviceSupported: Bool = UIDevice.current.model == "iPhone"
 	
-	private let enManager = ENManager()
+	internal static let isENManagerAvailable: Bool = NSClassFromString("ENManager") != nil
+	
+	private let enManager: ENManager!
 	private var activationError: Error? = nil {
 		didSet {
 			if let error = activationError {
@@ -27,14 +29,22 @@ class GXExposureAlertsManager {
 	private var waitingForActivationOp: BlockOperation? = nil
 	
 	init() {
-		type(of: self).registerDetectionBackgroundTask()
-		guard type(of: self).isDeviceSupported else {
+		if #available(iOS 13.5, *) {
+			Self.registerDetectionBackgroundTask()
+		}
+		guard Self.isENManagerAvailable, Self.isDeviceSupported else {
+			enManager = nil
 			activationError = NSError.defaultGXError(withDeveloperDescription: "Exposure Notification API is not available on this device.")
 			return
 		}
 		
+		enManager = ENManager()
 		let waitingForActivationOp_ = BlockOperation()
 		waitingForActivationOp = waitingForActivationOp_
+		if #available(iOS 13.0, *) { }
+		else { // iOS 12.5
+			registerDetectionLaunchActivityHandler() // Before activation
+		}
 		enManager.activate { error in
 			self.waitingForActivationOp = nil
 			self.activationError = error
@@ -45,7 +55,9 @@ class GXExposureAlertsManager {
 						waitingForActivationOp_.waitUntilFinished() // retain op until finised
 					}
 				}
-				type(of: self).scheduleBackgroundTaskIfNeeded()
+				if #available(iOS 13.5, *) {
+					Self.scheduleBackgroundTaskIfNeeded()
+				}
 			}
 		}
 		let nc = NotificationCenter.default
@@ -55,7 +67,7 @@ class GXExposureAlertsManager {
 	}
 	
     deinit {
-		guard type(of: self).isDeviceSupported else {
+		guard Self.isDeviceSupported else {
 			return
 		}
         enManager.invalidate()
@@ -89,7 +101,9 @@ class GXExposureAlertsManager {
 		self.setEnabled(true) { (error) in
 			if error == nil {
 				GXExposureAlertsLocalStorage.shared.lastStartedExposureConfiguration = .init(enConfig: config)
-				type(of: self).scheduleBackgroundTaskIfNeeded()
+				if #available(iOS 13.5, *) {
+					Self.scheduleBackgroundTaskIfNeeded()
+				}
 			}
 			completion(error)
 		}
@@ -99,7 +113,9 @@ class GXExposureAlertsManager {
 		self.setEnabled(false) { (error) in
 			if error == nil {
 				GXExposureAlertsLocalStorage.shared.lastStartedExposureConfiguration = nil
-				type(of: self).cancelPendingBackgroundTask()
+				if #available(iOS 13.5, *) {
+					Self.cancelPendingBackgroundTask()
+				}
 			}
 			completion(error)
 		}
@@ -121,7 +137,9 @@ class GXExposureAlertsManager {
 	// MARK - Notification Observers
 	
 	@objc private func onExposureDetectionMinIntervalDidChange() {
-		type(of: self).scheduleBackgroundTaskIfNeeded()
+		if #available(iOS 13.5, *) {
+			Self.scheduleBackgroundTaskIfNeeded()
+		}
 	}
 	
 	// MARK - Private Helpers
@@ -234,13 +252,17 @@ class GXExposureAlertsManager {
 			
 			let success: Bool
 			if progress.isCancelled {
-				GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: nil, verifyPendingTasks: false)
+				if #available(iOS 13.5, *) {
+					GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: nil, verifyPendingTasks: false)
+				}
 				success = false
 			} else {
 				switch result {
 				case let .success(sessionResult):
 					GXExposureAlertsLocalStorage.shared.lastExposureDetectionResult = sessionResult
-					GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: nil, verifyPendingTasks: false)
+					if #available(iOS 13.5, *) {
+						GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: nil, verifyPendingTasks: false)
+					}
 					if logService.isLogEnabled {
 						logService.logMessage("Exposure detection session ended: \(sessionResult.sessionTimeStamp) with matches: \(sessionResult.matchedKeyCount)", for: .general, with: .debug, logToConsole: true)
 					}
@@ -275,7 +297,9 @@ class GXExposureAlertsManager {
 						}
 					}
 					if let retryTimeInterval = retryTimeInterval {
-						GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: Date(timeIntervalSinceNow: retryTimeInterval), verifyPendingTasks: false)
+						if #available(iOS 13.5, *) {
+							GXExposureAlertsManager.scheduleBackgroundTaskIfNeeded(earliestBeginDate: Date(timeIntervalSinceNow: retryTimeInterval), verifyPendingTasks: false)
+						}
 					}
 					success = false
 				}
@@ -449,7 +473,7 @@ class GXExposureAlertsManager {
 							exposureDetailsResult = exposureDetails?.map { exposureInfo in
 								let totalRiskScore: UInt16
 								if summary.maximumRiskScore == ENRiskScore.max,
-									let totalRiskScoreNum = GXUtilities.unsignedIntegerNumber(fromValue: summary.metadata?["totalRiskScoreFullRange"]) {
+								   let totalRiskScoreNum = GXUtilities.unsignedIntegerNumber(fromValue: summary.metadata?["totalRiskScoreFullRange"]) {
 									totalRiskScore = totalRiskScoreNum.uint16Value
 								}
 								else {
@@ -461,12 +485,12 @@ class GXExposureAlertsManager {
 											 totalRiskScore: totalRiskScore,
 											 attenuationValue: exposureInfo.attenuationValue,
 											 attenuationDurations: exposureInfo.attenuationDurations.map { $0.doubleValue })
-								} ?? []
+							} ?? []
 							let sessionResult: GXExposureAlertsLocalStorage.ExposureDetectionSessionResult
 							
 							let maximumRiskScore: UInt16
 							if summary.maximumRiskScore == ENRiskScore.max,
-								let maximumRiskScoreNum = GXUtilities.unsignedIntegerNumber(fromValue: summary.metadata?["maximumRiskScoreFullRange"]) {
+							   let maximumRiskScoreNum = GXUtilities.unsignedIntegerNumber(fromValue: summary.metadata?["maximumRiskScoreFullRange"]) {
 								maximumRiskScore = maximumRiskScoreNum.uint16Value
 							}
 							else {
@@ -481,8 +505,9 @@ class GXExposureAlertsManager {
 												  exposuresDetails: exposureDetailsResult)
 							finish(.success(sessionResult))
 						}
-						guard summary.maximumRiskScore >= minimumRiskScore,
-							let userExplanation = GXExposureAlertsLocalStorage.shared.exposureInformationUserExplanation else {
+						// iOS 12.5 does not support getExposureInfo(summary:) API
+						guard #available(iOS 13.5, *), summary.maximumRiskScore >= minimumRiskScore,
+							  let userExplanation = GXExposureAlertsLocalStorage.shared.exposureInformationUserExplanation else {
 							finishWithSuccess(withExposureDetails: nil)
 							return
 						}
@@ -597,10 +622,16 @@ class GXExposureAlertsManager {
 	
 	// MARK - Background Task
 	
+	@available(iOS 13.5, *)
 	private static let backgroundTaskIdentifier = Bundle.main.bundleIdentifier! + ".exposure-notification"
 	
+	@available(iOS 13.5, *)
 	private static func registerDetectionBackgroundTask() {
 		BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundTaskIdentifier, using: .main) { task in
+			let logService = GXLog.loggerService()
+			if logService.isLogEnabled {
+				logService.logMessage("Exposure detection session BGTask: \(task.identifier)", for: .general, with: .debug, logToConsole: true)
+			}
 			let progress = shared.detectExposures { success in
 				task.setTaskCompleted(success: success)
 			}
@@ -608,7 +639,6 @@ class GXExposureAlertsManager {
 			// Handle running out of time
 			task.expirationHandler = {
 				progress.cancel()
-				let logService = GXLog.loggerService()
 				if logService.isLogEnabled {
 					logService.logMessage("Background exposure detection session ran out of background time.", for: .general, with: .warning, logToConsole: false)
 				}
@@ -616,6 +646,26 @@ class GXExposureAlertsManager {
 		}
 	}
 	
+	@available(iOS, introduced: 12.5, obsoleted: 13.0, message: "Use registerDetectionBackgroundTask instead")
+	private func registerDetectionLaunchActivityHandler() {
+		if #available(iOS 13.0, *) {
+			fatalError("Use registerDetectionBackgroundTask instead in iOS >= 13.5")
+		}
+		else { // iOS 12.5
+			enManager.setLaunchActivityHandler { activityFlags in
+				if activityFlags.contains(.periodicRun) {
+					// Your app now has 3.5 minutes to perform download and detection.
+					let logService = GXLog.loggerService()
+					if logService.isLogEnabled {
+						logService.logMessage("Exposure detection session LaunchActivityHandler", for: .general, with: .debug, logToConsole: true)
+					}
+					Self.shared.detectExposures()
+				}
+			}
+		}
+	}
+	
+	@available(iOS 13.5, *)
 	private static func scheduleBackgroundTaskIfNeeded(earliestBeginDate: Date? = nil, verifyPendingTasks: Bool = true, completion: (() -> Void)? = nil) {
 		guard ENManager.authorizationStatus == .authorized,
 			GXExposureAlertsLocalStorage.shared.lastStartedExposureConfiguration != nil else {
@@ -673,13 +723,14 @@ class GXExposureAlertsManager {
 		}
 	}
 	
+	@available(iOS 13.5, *)
 	private static func cancelPendingBackgroundTask() {
 		BGTaskScheduler.shared.cancel(taskRequestWithIdentifier: backgroundTaskIdentifier)
 	}
 }
 
 
-@available(iOS 13.5, *)
+@available(iOS 12.5, *)
 extension GXExposureAlertsLocalStorage.ExposureConfiguration {
 	
 	public init(enConfig: ENExposureConfiguration) {
@@ -708,3 +759,28 @@ extension GXExposureAlertsLocalStorage.ExposureConfiguration {
 		return enConfig
 	}
 }
+
+
+// MARK - iOS 12.5 BGTaskScheduler alternative: https://developer.apple.com/documentation/exposurenotification/supporting_exposure_notifications_in_ios_12_5
+
+@available(iOS, introduced: 12.5, obsoleted: 13.0, message: "Use BGTaskScheduler instead")
+fileprivate struct ENActivityFlags: OptionSet {
+	let rawValue: UInt32
+	
+	/// The app launched to perform periodic operations.
+	static let periodicRun = ENActivityFlags(rawValue: 1 << 2)
+}
+
+@available(iOS, introduced: 12.5, obsoleted: 13.0, message: "Use BGTaskScheduler instead")
+fileprivate typealias ENActivityHandler = (ENActivityFlags) -> Void
+
+@available(iOS 12.5, *)
+fileprivate extension ENManager {
+	@available(iOS, introduced: 12.5, deprecated: 13.0, message: "Use BGTaskScheduler instead")
+	func setLaunchActivityHandler(activityHandler: @escaping ENActivityHandler) {
+		let proxyActivityHandler: @convention(block) (UInt32) -> Void = {integerFlag in
+			activityHandler(ENActivityFlags(rawValue: integerFlag))
+		}
+		setValue(proxyActivityHandler, forKey: "activityHandler")
+	}
+ }

@@ -11,9 +11,11 @@ public class GXExposureAlertsExtensionLibrary: NSObject, GXExtensionLibraryProto
 		GXApplication.register(GXExposureAlertsApplicationModelLoaderExtension())
 		GXActionExternalObjectHandler.register(GXActionExtObjExposureNotificationHandler.self, forExternalObjectName:
 			GXEOExposureNotification.externalObjectName)
-		if #available(iOS 13.5, *) {
-			// Initialize manager as soon as posible to register background task on app launch
-		    _ = GXExposureAlertsManager.shared
+		if #available(iOS 12.5, *) {
+			if GXExposureAlertsManager.isENManagerAvailable, GXExposureAlertsManager.isDeviceSupported {
+				// Initialize manager as soon as posible to register background task on app launch
+				_ = GXExposureAlertsManager.shared
+			}
 		}
 	}
 }

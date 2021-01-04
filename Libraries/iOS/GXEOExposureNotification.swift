@@ -19,7 +19,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	// MARK - Public
 	
 	public class var isAvailable: Bool {
-		if #available(iOS 13.5, *) {
+		if #available(iOS 12.5, *) {
 			return runtimeIsAvailable
 		}
 		else {
@@ -27,13 +27,13 @@ class GXEOExposureNotification: GXExternalObjectBase {
 		}
 	}
 	
-	@available(iOS 13.5, *)
+	@available(iOS 12.5, *)
 	private class var runtimeIsAvailable: Bool {
-		return ENManager.authorizationStatus != .restricted && GXExposureAlertsManager.isDeviceSupported
+		return GXExposureAlertsManager.isENManagerAvailable && ENManager.authorizationStatus != .restricted && GXExposureAlertsManager.isDeviceSupported
 	}
 	
 	public class func isEnabled(completion: @escaping (Bool) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(false)
 			return
 		}
@@ -53,7 +53,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class var authorizationStatus: GXAuthorizationStatusType {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			return .restricted
 		}
 		switch ENManager.authorizationStatus {
@@ -71,7 +71,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class func isBluetoothEnabled(completion: @escaping (Bool) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(false)
 			return
 		}
@@ -128,7 +128,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 		
 	public class func start(exposureConfiguration: GXSDTDataProtocol, completion: @escaping (Error?) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(notAvailableError)
 			return
 		}
@@ -162,7 +162,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class func stop(completion: @escaping (Error?) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(notAvailableError)
 			return
 		}
@@ -171,7 +171,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class func temporaryExposureKeyHistoryForSharing(completion: @escaping (Result<GXObjectCollection, Error>) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(.failure(notAvailableError))
 			return
 		}
@@ -202,7 +202,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class func lastExposureDetectionSessionDetails(completion: @escaping (Result<GXObjectCollection, Error>) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(.failure(notAvailableError))
 			return
 		}
@@ -225,7 +225,7 @@ class GXEOExposureNotification: GXExternalObjectBase {
 	}
 	
 	public class func resetLastExposureDetectionResult(completion: @escaping (Error?) -> Void) {
-		guard #available(iOS 13.5, *), runtimeIsAvailable else {
+		guard #available(iOS 12.5, *), runtimeIsAvailable else {
 			completion(notAvailableError)
 			return
 		}
